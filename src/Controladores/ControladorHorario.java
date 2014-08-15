@@ -43,6 +43,7 @@ public class ControladorHorario {
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Horario indisponível ou não cadastrado!");
+			//1+1;
 			return null;
 		}
 	}
