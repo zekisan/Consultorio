@@ -1,5 +1,6 @@
 package Controladores;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -103,11 +104,14 @@ private static ArrayList<Consulta> listaDeConsultas;
 		
 		if(!listaDeConsultas.isEmpty()){
 			String lista = "";
-			
+						
 			for(Consulta consulta: listaDeConsultas){
+				
+				String dataConsulta = new SimpleDateFormat("dd/MM/yyyy").format(consulta.getHorarioConsulta().getData());
+				
 				lista += listaDeConsultas.indexOf(consulta)+ " - " 
 					  + "Paciente: "+consulta.getPaciente().getNome()+" - "
-					  + "Horário: " +consulta.getHorarioConsulta().getHorario() + " - ";
+					  + "Horário: " + dataConsulta + " " + consulta.getHorarioConsulta().getHorario() + " - ";
 				if(consulta.isRealizada()){
 					lista +="Realizada\n";
 				}

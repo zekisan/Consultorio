@@ -1,7 +1,10 @@
 package Entidades;
 
+import java.util.Date;
+
 public class Horario {
 
+	private Date data;
 	private String horario;
 	private boolean disponivel;
 	
@@ -24,5 +27,12 @@ public class Horario {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-	
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
 }

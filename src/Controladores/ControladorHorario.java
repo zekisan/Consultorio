@@ -1,5 +1,9 @@
 package Controladores;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -9,9 +13,13 @@ public class ControladorHorario {
 	
 	private static ArrayList<Horario> listaDeHorarios = new ArrayList<Horario>();
 	
-	public static void gravaHorario(String horario){
+	public static void gravaHorario(String horario) throws ParseException{
+		Date data = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String dataHoje = dateFormat.format(data);
 		Horario horarioConsulta = new Horario();
 		horarioConsulta.setHorario(horario);
+		horarioConsulta.setData(dateFormat.parse(dataHoje));
 		listaDeHorarios.add(horarioConsulta);
 	}
 
@@ -20,8 +28,9 @@ public class ControladorHorario {
 		String lista = "";
 		
 		for(Horario horarioConsulta: listaDeHorarios){
+			String dataConsulta = new SimpleDateFormat("dd/MM/yyyy").format(horarioConsulta.getData());
 			if(horarioConsulta.isDisponivel()){
-				lista += listaDeHorarios.indexOf(horarioConsulta)+ " - " + horarioConsulta.getHorario()+"\n";
+				lista += listaDeHorarios.indexOf(horarioConsulta)+ " - " + dataConsulta + " " + horarioConsulta.getHorario()+"\n";
 			}
 		}
 		

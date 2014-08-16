@@ -1,5 +1,7 @@
 package Principal;
 
+import java.text.ParseException;
+
 import javax.swing.JOptionPane;
 import Controladores.*;
 
@@ -12,7 +14,7 @@ public class Principal {
 	static ControladorMedicamento controlaMedicamentos = new ControladorMedicamento();
 	static ControladorConsulta controlaConsultas = new ControladorConsulta();
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
 		DadosIniciais.gravaPacientes();
 		DadosIniciais.gravaMedicamentos();

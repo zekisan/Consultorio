@@ -1,8 +1,19 @@
 package Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import Controladores.*;
 
 public class DadosIniciais {
 
+	static Date dataHoje;
+	
+	public DadosIniciais(){
+		dataHoje = new Date();
+	}
+	
 	public static void gravaPacientes(){
 		ControladorPaciente.gravaPaciente("João", 50);
 		ControladorPaciente.gravaPaciente("Maria", 35);
@@ -29,7 +40,7 @@ public class DadosIniciais {
 		ControladorMedicamento.gravaMedicamento("Aspirina");
 	}
 	
-	public static void gravaHorarios(){
+	public static void gravaHorarios() throws ParseException{
 		ControladorHorario.gravaHorario("09:00 - 09:30");
 		ControladorHorario.gravaHorario("09:30 - 10:00");
 		ControladorHorario.gravaHorario("10:00 - 10:30");
